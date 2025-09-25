@@ -1,25 +1,70 @@
 # 📊 Customer Churn Prediction
 
 This project predicts customer churn for a telecom company using machine learning.  
-Built in **Python (Colab)** with **scikit-learn, XGBoost, and SHAP** for model explainability.
+It demonstrates the full data science workflow — from **EDA and preprocessing** to **model training, evaluation, and explainability**.  
+Developed in **Google Colab** with Python.
+
+---
 
 ## 🚀 Project Workflow
-1. Data loading & cleaning
-2. Exploratory Data Analysis (EDA)
-3. Feature engineering & preprocessing
-4. Model training: Logistic Regression, Random Forest, XGBoost
-5. Model evaluation: ROC-AUC, Precision/Recall, F1-score
-6. Explainability with SHAP
+
+1. **Data Loading & Cleaning**
+   - Dataset: [Telco Customer Churn (Kaggle)](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
+   - Handled missing values in `TotalCharges`
+   - Encoded categorical features (e.g., Contract type, Payment method)
+   - Balanced target labels using **SMOTE**
+
+2. **Exploratory Data Analysis (EDA)**
+   - Visualized churn distribution
+   - Examined churn by contract type, tenure, and charges
+   - Identified key drivers of churn: short tenure, month-to-month contracts, high monthly charges
+
+3. **Feature Engineering & Preprocessing**
+   - Standardized numerical features with `StandardScaler`
+   - Created new grouped features (e.g., tenure groups)
+   - Prepared train/test splits with stratification
+
+4. **Model Training**
+   - Baseline: Logistic Regression
+   - Advanced: Random Forest, XGBoost
+   - Hyperparameter tuning via GridSearchCV (optional extension)
+
+5. **Model Evaluation**
+   - Metrics: Accuracy, Precision, Recall, F1-score, ROC-AUC
+   - Visuals: Confusion Matrix, ROC Curve
+   - Best performing model: **XGBoost**
+
+6. **Explainability**
+   - Used **SHAP values** to interpret model predictions
+   - Key insights: 
+     - Customers on month-to-month contracts are much more likely to churn
+     - Lower tenure strongly correlates with churn
+     - High monthly charges increase churn probability
+
+---
 
 ## 📈 Results
-- Best model: **XGBoost** with ROC-AUC = 0.85  
-- Important factors for churn: contract type, tenure, monthly charges  
-- Insights: Short-term, high-paying, month-to-month customers are most at risk of churn.
+
+- **Best Model:** XGBoost  
+- **Performance:** ROC-AUC ~ 0.85, with balanced Precision and Recall  
+- **Key Drivers of Churn:**
+  - Contract type (month-to-month contracts churn the most)
+  - Short tenure (new customers more likely to churn)
+  - High monthly charges
+
+---
 
 ## 🛠 Tech Stack
-- Python, Pandas, Scikit-learn, XGBoost, SHAP, Matplotlib/Seaborn  
-- Google Colab for development
 
-## 🌐 Next Steps
-- Build a Streamlit app for interactive predictions  
-- Deploy on Streamlit Cloud or Render
+- Python
+- Pandas, NumPy
+- Scikit-learn, Imbalanced-learn
+- XGBoost
+- Matplotlib, Seaborn
+- SHAP (explainability)
+- Google Colab (development environment)
+
+---
+
+## 📂 Repository Structure
+
